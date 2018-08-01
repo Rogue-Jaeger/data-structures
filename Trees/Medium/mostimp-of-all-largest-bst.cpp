@@ -29,7 +29,7 @@ vector<int> lb(Node *root)
         // maxv-maxvalue in the subtree with root as root
         // minv-minimum value in the subtree with root as root
 
-        cout << root->data << " max val in left " << maxv  << " min val in roght" << minv << endl;
+        cout << root->data << " max val in left " << maxv  << " min val in right" << minv << endl;
         if(!v1[1] || !v2[1])//if any of the left and right subtree is not a bst
 
         return {mbs,0,maxv,minv};
