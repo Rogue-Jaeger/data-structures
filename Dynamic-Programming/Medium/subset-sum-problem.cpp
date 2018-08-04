@@ -23,7 +23,7 @@ int main(){
                         }
                         if(j == 0 && i!=0){
                                 arr[i][j] = false;
-                                continue;
+                                continue;git
                         }
                         if(i == 0){
                                 arr[i][j] = true;

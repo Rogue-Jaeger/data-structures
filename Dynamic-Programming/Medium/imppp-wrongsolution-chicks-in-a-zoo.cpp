@@ -1,9 +1,12 @@
+// https://practice.geeksforgeeks.org/problems/chicks-in-a-zoo/0
+
 #include<bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
 #define M 1000000007
 
+// wrong solution cause complexity created at 2*6+1 value difference starts occouring.
 
 int main(){
         ll test , num;
@@ -14,8 +17,7 @@ int main(){
 
         for(int i = 1 ; i < 36 ; i++ ){
                 if(i-7 >= 0){
-                        arr[i] = ( arr[i-1] - (arr[i-6] - arr[i-7]) ) * 3;
-                        cout<< arr[i-6] - arr[i-7] <<endl;
+                        arr[i] = 3*(arr[i-1] - 2*(arr[i-6]/3));
                 }
                 else if(i-6 >= 0){
                         arr[i] = ( arr[i-1] - arr[i-6] ) * 3;
@@ -23,6 +25,7 @@ int main(){
                 else{
                         arr[i] = arr[i-1]*3;
                 }
+                //cout << arr[i] << endl;
         }
 
         while(test--){
