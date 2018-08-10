@@ -1,44 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define M 1000000007
 
-// Returns count of possible paths to reach cell at row number m and column
-// number n from the topmost leftmost cell (cell at 1, 1)
-int numberOfPaths(int m, int n)
-{
-        // Create a 2D table to store results of subproblems
-        int count[m][n];
+int main(){
+        int test , tofind , size;
+        //freopen("input.txt" , "r" , stdin);
+        cin >> test;
 
-        // Count of paths to reach any cell in first column is 1
-        for (int i = 0; i < m; i++)
-        count[i][0] = 1;
+        while(test--){
+                cin >> size;
+                int arr[size];
+                for(int i = 0 ; i < size ; i++) cin >> arr[i];
+                cin >> tofind;
 
-        // Count of paths to reach any cell in first column is 1
-        for (int j = 0; j < n; j++)
-        count[0][j] = 1;
-
-        // Calculate count of paths for other cells in bottom-up manner using
-        // the recursive solution
-        for (int i = 1; i < m; i++)
-        {
-                for (int j = 1; j < n; j++){
-
-                        // By uncommenting the last part the code calculatest he total
-                        // possible paths if the diagonal Movements are allowed
-                        count[i][j] = ( count[i-1][j] + count[i][j-1] ) % M; //+ count[i-1][j-1];
-                        cout <<setw(9)<< count[i][j] << " ";
+                if(arr[0] < arr[size-1]) cout <<  find(arr  , 0 , size-1 , tofind) << endl;
+                else{
+                        int index = solve(arr , 0 , size-1);
+                        if(tofind >= arr[0]) cout << find(arr , 0 , index , tofind) << endl;
+                        else cout << find(arr , index+1 , size-1 , tofind) << endl;
                 }
-                cout<<endl;
         }
-        return count[m-1][n-1];
 }
-
-// Driver program to test above functions
-int main()
-{
-        int n , m;
-        cin >> n >> m;
-        cout << numberOfPaths(n, m);
-        return 0;
-}
+https://ide.geeksforgeeks.org/index.php
+https://www.geeksforgeeks.org/minimum-number-of-squares-whose-sum-equals-to-given-number-n/
+https://practice.geeksforgeeks.org/problems/get-minimum-squares/0/?ref=self
